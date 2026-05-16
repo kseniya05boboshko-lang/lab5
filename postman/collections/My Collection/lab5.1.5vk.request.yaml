@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://vk.com
+method: GET
+order: 3000

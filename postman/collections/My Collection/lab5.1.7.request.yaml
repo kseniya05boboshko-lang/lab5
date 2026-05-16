@@ -1,0 +1,15 @@
+$kind: http-request
+url: https://reqres.in/api/login
+method: POST
+headers:
+  x-api-key: reqres_94dfdd4411314d8bb512a60a7cec4066
+body:
+  type: json
+  content: "{\r
+
+    \  \"email\": \"george.bluth@reqres.in\",\r
+
+    \  \"password\": \"password123\"\r
+
+    }"
+order: 6000

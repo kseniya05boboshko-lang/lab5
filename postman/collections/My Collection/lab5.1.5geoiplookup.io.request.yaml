@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://json.geoiplookup.io/
+method: GET
+order: 4000
