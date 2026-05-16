@@ -1,0 +1,1 @@
+console.log(`Mode: ${process.env.MODE}, API URL: ${process.env.API_URL}`);

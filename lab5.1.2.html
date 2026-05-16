@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Toolkit, Postman - Задание 2</title>
+    <script type="importmap">
+        {
+            "imports": {
+                "axios": "./node_modules/axios/dist/esm/axios.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">Запросить vk.com</button>
+    <pre id="result"></pre>
+    <script type="module">
+        import axios from 'axios';
+        const btn = document.getElementById('btn');
+        const pre = document.getElementById('result');
+        btn.addEventListener('click', async () => {
+            try {
+                const resp = await axios.get('https://vk.com');
+                pre.textContent = `Статус: ${resp.status}\nДлина HTML: ${resp.data.length}`;
+            } catch (err) {
+                pre.textContent = `Ошибка: ${err.message}\nПричина: CORS (браузер блокирует запрос к другому домену)`;
+            }
+        });
+    </script>
+</body>
+</html>

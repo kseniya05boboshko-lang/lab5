@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Toolkit, Postman - Задание 1</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #2c2c2c;
+        }
+        canvas {
+            display: block;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+    </style>
+    <script type="importmap">
+        {
+            "imports": {
+                "pixi.js": "./node_modules/pixi.js/dist/pixi.mjs"
+            }
+        }
+    </script>
+</head>
+<body>
+    <script type="module">
+        import * as PIXI from 'pixi.js';
+
+        async function init() {
+            const app = new PIXI.Application();
+            await app.init({
+                width: 800,
+                height: 600,
+                backgroundColor: 0x1099bb,
+                antialias: true
+            });
+            document.body.appendChild(app.canvas);
+
+            // Квадрат 100x100
+            const rect = new PIXI.Graphics();
+            rect.beginFill(0xff0000);
+            rect.drawRect(0, 0, 100, 100);
+            rect.endFill();
+            rect.pivot.set(50, 50);
+            rect.position.set(app.screen.width / 2, app.screen.height / 2);
+            app.stage.addChild(rect);
+
+            app.ticker.add(() => {
+                rect.rotation += 0.02;
+            });
+        }
+        init();
+    </script>
+</body>
+</html>

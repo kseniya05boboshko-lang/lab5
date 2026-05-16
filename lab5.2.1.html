@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Introduction - Кликер</title>
+</head>
+<body>
+    <div id="app">
+        <p>Счётчик: {{ count }}</p>
+        <button @click="increment">Кликни меня</button>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import { createApp, ref } from 'vue';
+
+        createApp({
+            setup() {
+                const count = ref(0);
+                const increment = () => count.value++;
+                return { count, increment };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
