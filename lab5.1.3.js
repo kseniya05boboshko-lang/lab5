@@ -11,3 +11,5 @@ async function getGeoInfo() {
 }
 
 getGeoInfo();
+
+//Сервер json.geoiplookup.io поддерживает CORS и возвращает заголовок Access-Control-Allow-Origin: *. Поэтому браузер разрешает запрос. В Node.js запрос тоже работает, как и прежде.
